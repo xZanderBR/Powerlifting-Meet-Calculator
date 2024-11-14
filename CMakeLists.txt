@@ -39,13 +39,20 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(ImGuiFileDialog)
 
-# Find Vulkan
-find_package(Vulkan REQUIRED)
+# Fetch GoogleTest
+FetchContent_Declare(
+        googletest
+        GIT_REPOSITORY https://github.com/google/googletest.git
+        GIT_TAG v1.15.2
+)
+# Prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
 
-# Find Threads
+# Find Vulkan and Threads
+find_package(Vulkan REQUIRED)
 find_package(Threads REQUIRED)
 
-# Include directories
 include_directories(
         ${glfw_SOURCE_DIR}/include
         ${imgui_SOURCE_DIR}
@@ -58,7 +65,6 @@ include_directories(
 # Gather source files
 file(GLOB sources *.cpp)
 
-# Add executable
 add_executable(Powerlifting-Meet-Calculator
         ${sources}
         ${imgui_SOURCE_DIR}/backends/imgui_impl_glfw.cpp
@@ -86,6 +92,7 @@ add_executable(Powerlifting-Meet-Calculator
         MeetIO.h
 )
 
+# Configure Windows Subsystem
 if(WIN32)
     if(MSVC)
         target_link_options(Powerlifting-Meet-Calculator PRIVATE
@@ -110,5 +117,5 @@ target_link_libraries(Powerlifting-Meet-Calculator
 )
 target_compile_definitions(Powerlifting-Meet-Calculator PUBLIC -DImTextureID=ImU64)
 
-#enable_testing()
-#add_subdirectory(tests)
+enable_testing()
+add_subdirectory(tests)
