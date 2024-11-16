@@ -94,7 +94,6 @@ void Lifter::calculateDOTSScore(const double bw, const double total) {
     constexpr Coefficients maleCoeffs = {-0.000001093, 0.0007391293, -0.1918759221, 24.0900756, -307.75076};
     constexpr Coefficients femaleCoeffs = {-0.0000010706, 0.0005158568, -0.1126655495, 13.6175032, -57.96288};
 
-    // Ternary operator to choose the right coefficients based on gender
     const Coefficients coeff = gender == Gender::MALE ? maleCoeffs : femaleCoeffs;
 
     const double dots_denom = coeff.a * std::pow(bw, 4) + coeff.b * std::pow(bw, 3) + coeff.c * std::pow(bw, 2) +
@@ -103,7 +102,7 @@ void Lifter::calculateDOTSScore(const double bw, const double total) {
 }
 
 void Lifter::calculateWILKSOldScore(const double bw, const double total) {
-    // https://www.omnicalculator.com/sports/wilks
+    // https://www.powerlifting.sport/fileadmin/ipf/data/ipf-formula/Models_Evaluation-I-2020.pdf
 
     const Coefficients maleCoeffs = {
         -216.0475144,
@@ -122,7 +121,6 @@ void Lifter::calculateWILKSOldScore(const double bw, const double total) {
         -9.054 * std::pow(10, -8)
     };
 
-    // Ternary operator to choose the right coefficients based on gender
     const Coefficients coeff = gender == Gender::MALE ? maleCoeffs : femaleCoeffs;
 
     const double wilks_denom = coeff.a + coeff.b * bw + coeff.c * pow(bw, 2) + coeff.d * pow(bw, 3) + coeff.e *
@@ -150,7 +148,6 @@ void Lifter::calculateWILKSScore(const double bw, const double total) {
         -2.3334613884954 * std::pow(10, -8)
     };
 
-    // Ternary operator to choose the right coefficients based on gender
     const Coefficients coeff = gender == Gender::MALE ? maleCoeffs : femaleCoeffs;
 
     const double wilks_denom = coeff.a + coeff.b * bw + coeff.c * pow(bw, 2) + coeff.d * pow(bw, 3) + coeff.e *

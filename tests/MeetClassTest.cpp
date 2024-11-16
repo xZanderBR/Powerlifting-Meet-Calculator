@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
-#include "../Meet.h"
-#include "../Lifter.h"
+
+#include "../src/Meet.h"
+#include "../src/Lifter.h"
 
 TEST(MeetTest, DefaultConstructor) {
     Meet meet;

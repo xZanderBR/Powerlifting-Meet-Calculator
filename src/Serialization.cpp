@@ -66,7 +66,6 @@ void to_json(json &j, const Meet &meet) {
 }
 
 void from_json(const json &j, Meet &meet) {
-    // Validate required fields
     if (!j.contains("name") || !j.contains("date") || !j.contains("location") ||
         !j.contains("federation") || !j.contains("drugTested") ||
         !j.contains("benchOnly") || !j.contains("equipmentClass") ||

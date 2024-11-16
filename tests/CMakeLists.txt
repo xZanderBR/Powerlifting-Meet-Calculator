@@ -2,9 +2,9 @@ file(GLOB TEST_SRC_FILES "*.cpp")
 
 add_executable(PowerliftingTests
         ${TEST_SRC_FILES}
-        ../Meet.cpp
-        ../Lifter.cpp
-        ../Serialization.cpp
+        ../src/Meet.cpp
+        ../src/Lifter.cpp
+        ../src/Serialization.cpp
 )
 
 target_include_directories(PowerliftingTests

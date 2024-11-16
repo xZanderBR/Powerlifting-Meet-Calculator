@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
-#include "../Lifter.h"
+
+#include "../src/Lifter.h"
 
 TEST(LifterTest, DefaultConstructor) {
     Lifter lifter;

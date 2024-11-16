@@ -16,7 +16,7 @@ FetchContent_MakeAvailable(json)
 FetchContent_Declare(
         imgui
         GIT_REPOSITORY https://github.com/ocornut/imgui.git
-        GIT_TAG v1.91.4
+        GIT_TAG v1.91.3
 )
 FetchContent_MakeAvailable(imgui)
 
@@ -35,7 +35,7 @@ FetchContent_MakeAvailable(glfw)
 FetchContent_Declare(
         ImGuiFileDialog
         GIT_REPOSITORY https://github.com/aiekick/ImGuiFileDialog.git
-        GIT_TAG master
+        GIT_TAG v0.6.7
 )
 FetchContent_MakeAvailable(ImGuiFileDialog)
 
@@ -63,7 +63,10 @@ include_directories(
 )
 
 # Gather source files
-file(GLOB sources *.cpp)
+file(GLOB sources
+        "src/*.cpp"
+        "src/*.h"
+)
 
 add_executable(Powerlifting-Meet-Calculator
         ${sources}
@@ -75,21 +78,13 @@ add_executable(Powerlifting-Meet-Calculator
         ${imgui_SOURCE_DIR}/imgui_tables.cpp
         ${imgui_SOURCE_DIR}/imgui_widgets.cpp
         ${imgui_SOURCE_DIR}/misc/cpp/imgui_stdlib.cpp
-        ui/vulkan_setup.h
-        ui/vulkan_setup.cpp
-        Meet.h
-        Lifter.h
-        enums.h
-        Meet.cpp
-        ui/MeetWindowState.h
-        ui/MeetWindow.cpp
-        ui/MeetWindow.h
-        ui/IMGUITHEME.h
-        ui/IMGUITHEME.cpp
-        Serialization.h
-        Serialization.cpp
-        MeetIO.cpp
-        MeetIO.h
+        src/ui/vulkan_setup.h
+        src/ui/vulkan_setup.cpp
+        src/ui/MeetWindowState.h
+        src/ui/MeetWindow.cpp
+        src/ui/MeetWindow.h
+        src/ui/IMGUITHEME.h
+        src/ui/IMGUITHEME.cpp
 )
 
 # Configure Windows Subsystem

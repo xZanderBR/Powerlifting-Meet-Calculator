@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
-#include "../Meet.h"
-#include "../Serialization.h"
+
+#include "../src/Meet.h"
+#include "../src/Serialization.h"
 
 TEST(MeetSerialization, ExportAndImport) {
     Meet originalMeet;

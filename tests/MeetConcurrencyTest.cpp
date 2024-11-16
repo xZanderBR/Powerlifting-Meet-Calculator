@@ -1,7 +1,8 @@
 #include <gtest/gtest.h>
 #include <future>
-#include "../Meet.h"
-#include "../Lifter.h"
+
+#include "../src/Meet.h"
+#include "../src/Lifter.h"
 
 TEST(MeetConcurrencyTest, SimultaneousImportExport) {
     Meet meet;
