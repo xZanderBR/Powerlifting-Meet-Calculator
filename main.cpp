@@ -1,9 +1,10 @@
 #include "ui/vulkan_setup.h"
 #include "ui/MeetWindow.h"
 #include "ui/IMGUITHEME.h"
+
 #include "imgui_impl_glfw.h"
-#include "Lifter.h"
 #include "Meet.h"
+
 #include <cstdio>
 
 using namespace VulkanSetup;
@@ -125,8 +126,6 @@ int main(int, char**)
         #endif
 
         ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
-        //ImGui::ShowStyleEditor();
-        //ImGui::ShowDemoWindow();
         meetWindow.display();
         ImGui::PopStyleVar();
 
@@ -160,3 +159,12 @@ int main(int, char**)
 
     return 0;
 }
+
+#ifdef _WIN32
+#include <windows.h>
+
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd) {
+    return main(__argc, __argv);
+}
+
+#endif

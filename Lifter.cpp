@@ -105,7 +105,7 @@ void Lifter::calculateDOTSScore(const double bw, const double total) {
 void Lifter::calculateWILKSOldScore(const double bw, const double total) {
     // https://www.omnicalculator.com/sports/wilks
 
-    constexpr Coefficients maleCoeffs = {
+    const Coefficients maleCoeffs = {
         -216.0475144,
         16.2606339,
         -0.002388645,
@@ -113,7 +113,7 @@ void Lifter::calculateWILKSOldScore(const double bw, const double total) {
         7.01863 * std::pow(10, -6),
         -1.291 * std::pow(10, -8)
     };
-    constexpr Coefficients femaleCoeffs = {
+    const Coefficients femaleCoeffs = {
         594.31747775582,
         -27.23842536447,
         0.82112226871,
@@ -133,7 +133,7 @@ void Lifter::calculateWILKSOldScore(const double bw, const double total) {
 void Lifter::calculateWILKSScore(const double bw, const double total) {
     // https://worldpowerlifting.com/wilks-formula/
 
-    constexpr Coefficients maleCoeffs = {
+    const Coefficients maleCoeffs = {
         47.46178854,
         8.472061379,
         0.07369410346,
@@ -141,7 +141,7 @@ void Lifter::calculateWILKSScore(const double bw, const double total) {
         7.07665973070743 * std::pow(10, -6),
         -1.20804336482315 * std::pow(10, -8)
     };
-    constexpr Coefficients femaleCoeffs = {
+    const Coefficients femaleCoeffs = {
         -125.4255398,
         13.71219419,
         -0.03307250631,
