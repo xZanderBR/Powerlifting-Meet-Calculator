@@ -1,6 +1,7 @@
 #include "ui/vulkan_setup.h"
 #include "ui/MeetWindow.h"
 #include "ui/IMGUITHEME.h"
+#include "fonts/Roboto.h"
 
 #include "imgui_impl_glfw.h"
 #include "Meet.h"
@@ -75,7 +76,9 @@ int main(int, char**)
     ImGui_ImplVulkan_Init(&init_info);
 
     // Load Roboto Font
-    io.Fonts->AddFontFromFileTTF("../fonts/Roboto-Medium.ttf", 14.0f);
+    ImFontConfig font_cfg;
+    font_cfg.FontDataOwnedByAtlas = false;
+    io.Fonts->AddFontFromMemoryCompressedTTF(Roboto_compressed_data, Roboto_compressed_size, 14.0f, &font_cfg);
 
     // Our state
     constexpr auto clear_color = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
