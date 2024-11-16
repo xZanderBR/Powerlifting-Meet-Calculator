@@ -63,4 +63,4 @@ This project uses the following dependencies:
 Dependencies are automatically fetched using CMake's `FetchContent`.
 
 ## License
-This project is licensed under the MIT License. For more details, see the LICENSE file.
+This project is licensed under the MIT License. For more details, see the [LICENSE](https://github.com/xZanderBR/Powerlifting-Meet-Calculator/blob/main/LICENSE) file.
