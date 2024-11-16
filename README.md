@@ -13,10 +13,10 @@
 
 ## Screenshots
 ### Windows:
-![Powerlifting-Meet-Calculator_wL6fsJidPF](https://github.com/user-attachments/assets/3e99fd69-2eaa-49db-af12-33b3d7c42e6b)
+![Powerlifting-Meet-Calculator-win](https://github.com/user-attachments/assets/3e99fd69-2eaa-49db-af12-33b3d7c42e6b)
 
 ### Linux:
-![Screenshot_20241116_035039_crop](https://github.com/user-attachments/assets/6c603b68-a832-435f-ad7f-9edec464c554)
+![Powerlifting-Meet-Calculator-linux](https://github.com/user-attachments/assets/6c603b68-a832-435f-ad7f-9edec464c554)
 
 
 ## Installation
@@ -41,7 +41,7 @@ The latest Windows builds are compiled with MSVC and posted under [releases](htt
    mkdir build
    cd build
    cmake .. -DCMAKE_BUILD_TYPE=Release
-   cmake --build .
+   cmake --build . --config Release
    ```
 3. Run the program:
    ```bash
