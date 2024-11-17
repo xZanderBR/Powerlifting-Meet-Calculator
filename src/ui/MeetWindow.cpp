@@ -11,6 +11,8 @@ constexpr size_t MAX_BUFFER_SIZE = 256;
 constexpr float COMBO_WIDTH_RATIO = 0.25f;
 constexpr float INPUT_WIDTH_RATIO = 0.5f;
 constexpr float BUTTON_WIDTH = 97.0f;
+constexpr float FILE_DIALOG_WIDTH = 658.0f;
+constexpr float FILE_DIALOG_HEIGHT = 378.0f;
 constexpr int COLUMN_COUNT = 13;
 
 MeetWindow::MeetWindow(Meet &meet) : meet_(meet) {
@@ -286,7 +288,7 @@ void MeetWindow::displayLifterUpdateForm(Lifter &lifter) {
 
 void MeetWindow::setupLifterTableColumns(const std::string &unitLabel) {
     ImGui::TableSetupColumn("Rank");
-    ImGui::TableSetupColumn("Name");
+    ImGui::TableSetupColumn("Name", ImGuiTableColumnFlags_WidthStretch);
     ImGui::TableSetupColumn("Sex");
     ImGui::TableSetupColumn("Age");
     ImGui::TableSetupColumn(("Bodyweight " + unitLabel).c_str());
@@ -297,7 +299,7 @@ void MeetWindow::setupLifterTableColumns(const std::string &unitLabel) {
     ImGui::TableSetupColumn("DOTS Score");
     ImGui::TableSetupColumn("GL Points");
     ImGui::TableSetupColumn("Wilks Score");
-    ImGui::TableSetupColumn("Action");
+    ImGui::TableSetupColumn("Action", ImGuiTableColumnFlags_WidthFixed, 100.0f);
 
     // Custom Centered Headers
     ImGui::TableNextRow(ImGuiTableRowFlags_Headers);
@@ -371,7 +373,7 @@ void MeetWindow::displayStatusMessage() {
 }
 
 void MeetWindow::handleImportDialog() {
-    if (ImGuiFileDialog::Instance()->Display("ImportFileDlgKey")) {
+    if (ImGuiFileDialog::Instance()->Display("ImportFileDlgKey", ImGuiWindowFlags_NoMove, ImVec2(FILE_DIALOG_WIDTH, FILE_DIALOG_HEIGHT))) {
         if (ImGuiFileDialog::Instance()->IsOk()) {
             startImportFile(ImGuiFileDialog::Instance()->GetFilePathName());
         }
@@ -381,7 +383,7 @@ void MeetWindow::handleImportDialog() {
 }
 
 void MeetWindow::handleExportDialog() {
-    if (ImGuiFileDialog::Instance()->Display("ExportFileDlgKey")) {
+    if (ImGuiFileDialog::Instance()->Display("ExportFileDlgKey", ImGuiWindowFlags_NoMove, ImVec2(FILE_DIALOG_WIDTH, FILE_DIALOG_HEIGHT))) {
         if (ImGuiFileDialog::Instance()->IsOk()) {
             startSaveFile(ImGuiFileDialog::Instance()->GetFilePathName());
         }

@@ -21,7 +21,7 @@ int main(int, char**)
     // Create window with Vulkan context
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
-    GLFWwindow* window = glfwCreateWindow(925, 720, "Powerlifting Meet Calculator", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(930, 720, "Powerlifting Meet Calculator", nullptr, nullptr);
     if (!glfwVulkanSupported())
     {
         printf("GLFW: Vulkan Not Supported\n");
@@ -51,6 +51,9 @@ int main(int, char**)
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
+
+    // Disable automatic .ini file loading and saving
+    io.IniFilename = nullptr;
 
     // Setup Dear ImGui style
     ImGui::StyleColorsDark();
